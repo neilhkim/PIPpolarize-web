@@ -1057,23 +1057,6 @@ perturb-amplitude
 0
 Number
 
-BUTTON
-196
-87
-365
-120
-change input geometry file
-carefully [ set input-geometry-fname user-file ]\n  [ print \"geometry-input-fname not updated.\" ]
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
 CHOOSER
 21
 209
@@ -1222,23 +1205,6 @@ PENS
 "7" 1.0 2 -9276814 true "" ""
 "8" 1.0 2 -11221820 true "" ""
 "9" 1.0 2 -16777216 true "" ""
-
-BUTTON
-196
-135
-366
-168
-set-save-dir
-carefully [\nset save-dir-name user-directory\nset setup-success? false\n]\n[ \nuser-message (word \"Save directory unchanged.\")\n]
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
 
 SWITCH
 1266
