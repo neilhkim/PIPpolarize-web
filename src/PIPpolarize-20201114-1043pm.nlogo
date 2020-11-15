@@ -1,6 +1,6 @@
 globals [
   setup-success?
-  okay-to-save?
+;  okay-to-save?
   run-index
 
   ; Internally set Constants ;
@@ -60,7 +60,7 @@ to setup
   clear-all
   display
   set setup-success? true ; It will change to false if something goes wrong in the resetting process.
-  set okay-to-save? false
+;  set okay-to-save? false
 
   RESET-TICKS
 
@@ -244,14 +244,14 @@ end
 to go
   if setup-success? = false
   [ user-message "Reset status unsuccessful."    stop  ]
-  if save-dir-name != "N/A" and not file-exists? (word save-dir-name "iface-t0 " file-prefix ".png") ; Trying to find the screenshot of the initial interface taken at "setup".
-  [ user-message "Needs to redo \"setup\"" set save-dir-name "N/A" set setup-success? false stop ] ; If it's not found, tell the user that probably, you changed the save-dir after you pressed "setup"
+;  if save-dir-name != "N/A" and not file-exists? (word save-dir-name "iface-t0 " file-prefix ".png") ; Trying to find the screenshot of the initial interface taken at "setup".
+;  [ user-message "Needs to redo \"setup\"" set save-dir-name "N/A" set setup-success? false stop ] ; If it's not found, tell the user that probably, you changed the save-dir after you pressed "setup"
 
-  if okay-to-save? = false [
-    ifelse "no" = user-one-of (word "Saving result file(s) to " save-dir-name " - Okay?") ["yes" "no"]
-    [  stop  ]
-    [ set okay-to-save? true ]
-  ]
+;  if okay-to-save? = false [
+;    ifelse "no" = user-one-of (word "Saving result file(s) to " save-dir-name " - Okay?") ["yes" "no"]
+;    [  stop  ]
+;    [ set okay-to-save? true ]
+;  ]
 
 
 
@@ -259,11 +259,11 @@ to go
   if time > endtime
   [
     ; Save
-    if save_timelapse_img? or save_all_plots? or save-xL-xS?
-    [
-      set-current-directory save-dir-name
-      export-interface (word "iface-End " file-prefix ".png")
-    ]
+;    if save_timelapse_img? or save_all_plots? or save-xL-xS?
+;    [
+;      set-current-directory save-dir-name
+;      export-interface (word "iface-End " file-prefix ".png")
+;    ]
 
     set run-index  run-index + 1
 
@@ -278,8 +278,8 @@ to go
 
     ; All-runs end and Export "xL-xS"
     if run-index >= N-runs [
-      if save-xL-xS? [export-plot "xL-xS" (word "xL-xS of " file-prefix  " " N-runs "-runs.csv")]
-      if save_all_plots? [export-all-plots (word file-prefix " - allplots.csv")]
+;      if save-xL-xS? [export-plot "xL-xS" (word "xL-xS of " file-prefix  " " N-runs "-runs.csv")]
+;      if save_all_plots? [export-all-plots (word file-prefix " - allplots.csv")]
       set run-index  run-index - 1 ; for visual purpose
       stop
     ]
@@ -302,7 +302,7 @@ to go
   ]
 
   ; Save timelapse (snapshot) image / Video frame
-  if save_timelapse_img? and time >= next_tlapse_time [ save_tlapse_img ]
+;  if save_timelapse_img? and time >= next_tlapse_time [ save_tlapse_img ]
 
   ; All the main functions are below:
   unbind
@@ -315,18 +315,18 @@ to go
 end
 
 
-to save_tlapse_img
-  let inttime precision time 0
-  let nZeros 3 - (length (word inttime))
-  let $3digit_time ""
-  repeat nZeros [set $3digit_time insert-item 0 $3digit_time "0"]
-  set $3digit_time (word $3digit_time inttime)
-  set-current-directory save-dir-name
-  export-view (word run-index " t" $3digit_time ".png")
-;  ifelse simple-savename? [    export-view (word run-index " t" $3digit_time ".png")      ]
-;                          [    export-view (word file-prefix " t" $3digit_time ".png")    ]
-  set next_tlapse_time    next_tlapse_time + tlapse_interval
-end
+;to save_tlapse_img
+;  let inttime precision time 0
+;  let nZeros 3 - (length (word inttime))
+;  let $3digit_time ""
+;  repeat nZeros [set $3digit_time insert-item 0 $3digit_time "0"]
+;  set $3digit_time (word $3digit_time inttime)
+;  set-current-directory save-dir-name
+;  export-view (word run-index " t" $3digit_time ".png")
+;;  ifelse simple-savename? [    export-view (word run-index " t" $3digit_time ".png")      ]
+;;                          [    export-view (word file-prefix " t" $3digit_time ".png")    ]
+;  set next_tlapse_time    next_tlapse_time + tlapse_interval
+;end
 
 
 to setup_world_from_input_file

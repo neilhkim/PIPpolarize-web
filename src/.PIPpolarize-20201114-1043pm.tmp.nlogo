@@ -1,6 +1,6 @@
 globals [
   setup-success?
-  okay-to-save?
+;  okay-to-save?
   run-index
 
   ; Internally set Constants ;
@@ -243,15 +243,15 @@ end
 
 to go
   if setup-success? = false
-  [ user-message "Reset status unsuccessful."    stop  ]
-  if save-dir-name != "N/A" and not file-exists? (word save-dir-name "iface-t0 " file-prefix ".png") ; Trying to find the screenshot of the initial interface taken at "setup".
-  [ user-message "Needs to redo \"setup\"" set save-dir-name "N/A" set setup-success? false stop ] ; If it's not found, tell the user that probably, you changed the save-dir after you pressed "setup"
+;  [ user-message "Reset status unsuccessful."    stop  ]
+;  if save-dir-name != "N/A" and not file-exists? (word save-dir-name "iface-t0 " file-prefix ".png") ; Trying to find the screenshot of the initial interface taken at "setup".
+;  [ user-message "Needs to redo \"setup\"" set save-dir-name "N/A" set setup-success? false stop ] ; If it's not found, tell the user that probably, you changed the save-dir after you pressed "setup"
 
-  if okay-to-save? = false [
-    ifelse "no" = user-one-of (word "Saving result file(s) to " save-dir-name " - Okay?") ["yes" "no"]
-    [  stop  ]
-    [ set okay-to-save? true ]
-  ]
+;  if okay-to-save? = false [
+;    ifelse "no" = user-one-of (word "Saving result file(s) to " save-dir-name " - Okay?") ["yes" "no"]
+;    [  stop  ]
+;    [ set okay-to-save? true ]
+;  ]
 
 
 
@@ -259,11 +259,11 @@ to go
   if time > endtime
   [
     ; Save
-    if save_timelapse_img? or save_all_plots? or save-xL-xS?
-    [
-      set-current-directory save-dir-name
-      export-interface (word "iface-End " file-prefix ".png")
-    ]
+;    if save_timelapse_img? or save_all_plots? or save-xL-xS?
+;    [
+;      set-current-directory save-dir-name
+;      export-interface (word "iface-End " file-prefix ".png")
+;    ]
 
     set run-index  run-index + 1
 
@@ -278,8 +278,8 @@ to go
 
     ; All-runs end and Export "xL-xS"
     if run-index >= N-runs [
-      if save-xL-xS? [export-plot "xL-xS" (word "xL-xS of " file-prefix  " " N-runs "-runs.csv")]
-      if save_all_plots? [export-all-plots (word file-prefix " - allplots.csv")]
+;      if save-xL-xS? [export-plot "xL-xS" (word "xL-xS of " file-prefix  " " N-runs "-runs.csv")]
+;      if save_all_plots? [export-all-plots (word file-prefix " - allplots.csv")]
       set run-index  run-index - 1 ; for visual purpose
       stop
     ]
@@ -302,7 +302,7 @@ to go
   ]
 
   ; Save timelapse (snapshot) image / Video frame
-  if save_timelapse_img? and time >= next_tlapse_time [ save_tlapse_img ]
+;  if save_timelapse_img? and time >= next_tlapse_time [ save_tlapse_img ]
 
   ; All the main functions are below:
   unbind
