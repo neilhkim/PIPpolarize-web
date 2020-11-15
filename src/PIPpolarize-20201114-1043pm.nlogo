@@ -870,7 +870,7 @@ INPUTBOX
 923
 379
 worldLength
-0.0
+30.0
 1
 0
 Number
