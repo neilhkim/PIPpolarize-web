@@ -690,7 +690,7 @@ INPUTBOX
 618
 474
 k_mkon
-0.0
+0.1
 1
 0
 Number
@@ -701,7 +701,7 @@ INPUTBOX
 715
 474
 k_koff
-0.0
+0.7
 1
 0
 Number
@@ -712,7 +712,7 @@ INPUTBOX
 813
 474
 k_mkcat
-0.0
+10.0
 1
 0
 Number
@@ -723,7 +723,7 @@ INPUTBOX
 619
 588
 p_mkon
-0.0
+0.02
 1
 0
 Number
@@ -734,7 +734,7 @@ INPUTBOX
 714
 587
 p_koff
-0.0
+0.1
 1
 0
 Number
@@ -745,7 +745,7 @@ INPUTBOX
 815
 551
 memP_mkcat
-0.0
+15.0
 1
 0
 Number
@@ -767,7 +767,7 @@ INPUTBOX
 714
 380
 D_pip
-0.0
+2.0
 1
 0
 Number
@@ -859,7 +859,7 @@ INPUTBOX
 626
 284
 endtime
-0.0
+10.0
 1
 0
 Number
@@ -892,7 +892,7 @@ INPUTBOX
 714
 284
 timestep
-0.0
+0.02
 1
 0
 Number
@@ -905,7 +905,7 @@ CHOOSER
 geometry-setup
 geometry-setup
 "None" "Confinement"
-1
+0
 
 SLIDER
 534
@@ -980,7 +980,7 @@ INPUTBOX
 910
 474
 k_mKm
-0.0
+2.0
 1
 0
 Number
@@ -991,7 +991,7 @@ INPUTBOX
 908
 587
 p_mKm
-0.0
+0.5
 1
 0
 Number
@@ -1002,7 +1002,7 @@ INPUTBOX
 816
 616
 solP_mkcat
-0.0
+0.15
 1
 0
 Number
@@ -1013,7 +1013,7 @@ INPUTBOX
 620
 380
 D_enz
-0.0
+0.2
 1
 0
 Number
@@ -1057,23 +1057,6 @@ perturb-amplitude
 0
 Number
 
-BUTTON
-196
-87
-365
-120
-change input geometry file
-carefully [ set input-geometry-fname user-file ]\n  [ print \"geometry-input-fname not updated.\" ]
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
 CHOOSER
 21
 209
@@ -1100,7 +1083,7 @@ INPUTBOX
 1002
 123
 KIN-PPT-X
-0
+[.0 .0 .5]
 1
 0
 String
@@ -1222,23 +1205,6 @@ PENS
 "7" 1.0 2 -9276814 true "" ""
 "8" 1.0 2 -11221820 true "" ""
 "9" 1.0 2 -16777216 true "" ""
-
-BUTTON
-196
-135
-366
-168
-set-save-dir
-carefully [\nset save-dir-name user-directory\nset setup-success? false\n]\n[ \nuser-message (word \"Save directory unchanged.\")\n]
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
 
 SWITCH
 1266

@@ -690,7 +690,7 @@ INPUTBOX
 618
 474
 k_mkon
-0.0
+0.1
 1
 0
 Number
@@ -701,7 +701,7 @@ INPUTBOX
 715
 474
 k_koff
-0.0
+0.7
 1
 0
 Number
@@ -712,7 +712,7 @@ INPUTBOX
 813
 474
 k_mkcat
-0.0
+10.0
 1
 0
 Number
@@ -723,7 +723,7 @@ INPUTBOX
 619
 588
 p_mkon
-0.0
+0.02
 1
 0
 Number
@@ -734,7 +734,7 @@ INPUTBOX
 714
 587
 p_koff
-0.0
+0.1
 1
 0
 Number
@@ -745,7 +745,7 @@ INPUTBOX
 815
 551
 memP_mkcat
-0.0
+15.0
 1
 0
 Number
@@ -767,7 +767,7 @@ INPUTBOX
 714
 380
 D_pip
-0.0
+2.0
 1
 0
 Number
@@ -859,21 +859,10 @@ INPUTBOX
 626
 284
 endtime
-0.0
+10.0
 1
 0
 Number
-
-INPUTBOX
-376
-32
-805
-102
-input-geometry-fname
-0
-1
-0
-String
 
 INPUTBOX
 845
@@ -892,7 +881,7 @@ INPUTBOX
 714
 284
 timestep
-0.0
+0.02
 1
 0
 Number
@@ -905,7 +894,7 @@ CHOOSER
 geometry-setup
 geometry-setup
 "None" "Confinement"
-1
+0
 
 SLIDER
 534
@@ -980,7 +969,7 @@ INPUTBOX
 910
 474
 k_mKm
-0.0
+2.0
 1
 0
 Number
@@ -991,7 +980,7 @@ INPUTBOX
 908
 587
 p_mKm
-0.0
+0.5
 1
 0
 Number
@@ -1002,7 +991,7 @@ INPUTBOX
 816
 616
 solP_mkcat
-0.0
+0.15
 1
 0
 Number
@@ -1013,7 +1002,7 @@ INPUTBOX
 620
 380
 D_enz
-0.0
+0.2
 1
 0
 Number
@@ -1083,7 +1072,7 @@ INPUTBOX
 1002
 123
 KIN-PPT-X
-0
+[.0 .0 .5]
 1
 0
 String
@@ -1320,17 +1309,6 @@ Membrane size and patches
 0.0
 1
 
-INPUTBOX
-377
-104
-806
-168
-save-dir-name
-0
-1
-0
-String
-
 MONITOR
 15
 81
@@ -1432,6 +1410,17 @@ save-xL-xS?
 0
 1
 -1000
+
+INPUTBOX
+378
+38
+810
+98
+input-geometry-fname
+0
+1
+0
+String
 
 @#$#@#$#@
 ## WHAT IS IT?
