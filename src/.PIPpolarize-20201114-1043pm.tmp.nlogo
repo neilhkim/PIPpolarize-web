@@ -120,8 +120,8 @@ to setup
 
   ; Init save files
   set file-prefix retrieve-simul_info_string
-  ifelse save_timelapse_img? or save_all_plots? or save-xL-xS?  [  set setup-success? initialize-saving   ]
-  [ set save-dir-name "N/A" ]
+;  ifelse save_timelapse_img? or save_all_plots? or save-xL-xS?  [  set setup-success? initialize-saving   ]
+;  [ set save-dir-name "N/A" ]
   display
 end
 
@@ -220,26 +220,25 @@ to initialize_patches
   ]
 end
 
-to-report initialize-saving
-  let success? true ; This will change to false if something goes wrong in the process.
-
-  if (save_timelapse_img? or save_all_plots? or save-xL-xS?) and (save-dir-name = "N/A" or save-dir-name = "") [
-    print "wft"
-    carefully [      set save-dir-name user-directory    ]
-    [ ;user-message "Results saving directory not selected."
-      set success? false ; This will fall-into the "Saving to the save-dir-name failed." case in the down below.
-      set save-dir-name "N/A"
-    ]
-  ]
-
-  carefully [ export-interface (word save-dir-name "iface-t0 " file-prefix ".png") ] ; If this directory does not exist, this will spit out an error message.
-  [
-    user-message "Saving to the save-dir-name failed. Make sure you've put in a valid directory"
-    set success? false
-    set save-dir-name "N/A"
-  ]
-  report success?
-end
+;to-report initialize-saving
+;  let success? true ; This will change to false if something goes wrong in the process.
+;
+;  if (save_timelapse_img? or save_all_plots? or save-xL-xS?) and (save-dir-name = "N/A" or save-dir-name = "") [
+;    carefully [      set save-dir-name user-directory    ]
+;    [ ;user-message "Results saving directory not selected."
+;      set success? false ; This will fall-into the "Saving to the save-dir-name failed." case in the down below.
+;      set save-dir-name "N/A"
+;    ]
+;  ]
+;
+;  carefully [ export-interface (word save-dir-name "iface-t0 " file-prefix ".png") ] ; If this directory does not exist, this will spit out an error message.
+;  [
+;    user-message "Saving to the save-dir-name failed. Make sure you've put in a valid directory"
+;    set success? false
+;    set save-dir-name "N/A"
+;  ]
+;  report success?
+;end
 
 
 to go
@@ -260,7 +259,7 @@ to go
   if time > endtime
   [
     ; Save
-    if save_timelapse_img? or ? or save_all_plots? or save-xL-xS?
+    if save_timelapse_img? or save_all_plots? or save-xL-xS?
     [
       set-current-directory save-dir-name
       export-interface (word "iface-End " file-prefix ".png")
@@ -280,7 +279,6 @@ to go
     ; All-runs end and Export "xL-xS"
     if run-index >= N-runs [
       if save-xL-xS? [export-plot "xL-xS" (word "xL-xS of " file-prefix  " " N-runs "-runs.csv")]
-      if record_vid? [  vid:save-recording (word file-prefix "_mov.mp4") ]
       if save_all_plots? [export-all-plots (word file-prefix " - allplots.csv")]
       set run-index  run-index - 1 ; for visual purpose
       stop
@@ -305,7 +303,6 @@ to go
 
   ; Save timelapse (snapshot) image / Video frame
   if save_timelapse_img? and time >= next_tlapse_time [ save_tlapse_img ]
-  if record_vid?   [ if ticks mod vid_rec_intval = 0 [carefully[ vid:record-view ][ print "Video capture failed."] ] ]
 
   ; All the main functions are below:
   unbind
