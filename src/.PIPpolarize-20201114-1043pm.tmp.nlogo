@@ -260,7 +260,7 @@ to go
   if time > endtime
   [
     ; Save
-    if save_timelapse_img? or save_all_plots? or save-xL-xS?
+    if save_timelapse_img? or ? or save_all_plots? or save-xL-xS?
     [
       set-current-directory save-dir-name
       export-interface (word "iface-End " file-prefix ".png")
@@ -280,6 +280,7 @@ to go
     ; All-runs end and Export "xL-xS"
     if run-index >= N-runs [
       if save-xL-xS? [export-plot "xL-xS" (word "xL-xS of " file-prefix  " " N-runs "-runs.csv")]
+      if record_vid? [  vid:save-recording (word file-prefix "_mov.mp4") ]
       if save_all_plots? [export-all-plots (word file-prefix " - allplots.csv")]
       set run-index  run-index - 1 ; for visual purpose
       stop
@@ -304,6 +305,7 @@ to go
 
   ; Save timelapse (snapshot) image / Video frame
   if save_timelapse_img? and time >= next_tlapse_time [ save_tlapse_img ]
+  if record_vid?   [ if ticks mod vid_rec_intval = 0 [carefully[ vid:record-view ][ print "Video capture failed."] ] ]
 
   ; All the main functions are below:
   unbind
