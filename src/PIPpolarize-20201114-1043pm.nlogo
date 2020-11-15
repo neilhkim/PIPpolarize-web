@@ -881,7 +881,7 @@ INPUTBOX
 714
 284
 timestep
-0.02
+0.01
 1
 0
 Number
