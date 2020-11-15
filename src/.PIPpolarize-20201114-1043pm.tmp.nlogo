@@ -662,8 +662,8 @@ true
 true
 "" ""
 PENS
-"pip1" 1.0 2 -13345367 true "" "plotxy time 1 - avg_x"
-"pip2" 1.0 2 -4079321 true "" "plotxy time avg_x"
+"PIP1" 1.0 2 -13345367 true "" "plotxy time 1 - avg_x"
+"PIP2" 1.0 2 -4079321 true "" "plotxy time avg_x"
 
 PLOT
 1052
@@ -832,17 +832,6 @@ nGrid
 22
 
 SWITCH
-534
-664
-706
-697
-save_timelapse_img?
-save_timelapse_img?
-1
-1
--1000
-
-SWITCH
 1053
 52
 1469
@@ -865,23 +854,12 @@ endtime
 Number
 
 INPUTBOX
-376
-32
-805
-102
-input-geometry-fname
-0
-1
-0
-String
-
-INPUTBOX
 845
 319
 923
 379
 worldLength
-0.0
+30.0
 1
 0
 Number
@@ -892,7 +870,7 @@ INPUTBOX
 714
 284
 timestep
-0.02
+0.01
 1
 0
 Number
@@ -1075,7 +1053,7 @@ CHOOSER
 Enzyme-Pair-Type
 Enzyme-Pair-Type
 "memK-memP" "memK-solP"
-1
+0
 
 INPUTBOX
 847
@@ -1213,7 +1191,7 @@ SWITCH
 578
 plot-xL-xS?
 plot-xL-xS?
-0
+1
 1
 -1000
 
@@ -1301,16 +1279,6 @@ Plots
 1
 
 TEXTBOX
-536
-637
-729
-656
-Saving Images and Videos
-13
-0.0
-1
-
-TEXTBOX
 754
 294
 958
@@ -1319,17 +1287,6 @@ Membrane size and patches
 13
 0.0
 1
-
-INPUTBOX
-377
-104
-806
-168
-save-dir-name
-0
-1
-0
-String
 
 MONITOR
 15
@@ -1429,7 +1386,29 @@ SWITCH
 833
 save-xL-xS?
 save-xL-xS?
+1
+1
+-1000
+
+INPUTBOX
+378
+38
+810
+98
+input-geometry-fname
 0
+1
+0
+String
+
+SWITCH
+534
+664
+706
+697
+save_timelapse_img?
+save_timelapse_img?
+1
 1
 -1000
 

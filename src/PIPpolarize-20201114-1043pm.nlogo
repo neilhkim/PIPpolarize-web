@@ -662,8 +662,8 @@ true
 true
 "" ""
 PENS
-"pip1" 1.0 2 -13345367 true "" "plotxy time 1 - avg_x"
-"pip2" 1.0 2 -4079321 true "" "plotxy time avg_x"
+"PIP1" 1.0 2 -13345367 true "" "plotxy time 1 - avg_x"
+"PIP2" 1.0 2 -4079321 true "" "plotxy time avg_x"
 
 PLOT
 1052
@@ -681,8 +681,8 @@ true
 true
 "" ""
 PENS
-"K" 1.0 2 -955883 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_k_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count kinases]\n"
-"P" 1.0 2 -11221820 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_p_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count pptases]\n"
+"KINASE" 1.0 2 -955883 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_k_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count kinases]\n"
+"PPTASE" 1.0 2 -11221820 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_p_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count pptases]\n"
 
 INPUTBOX
 530
@@ -818,8 +818,8 @@ true
 true
 "" ""
 PENS
-"K" 1.0 0 -3844592 true "" "plotxy time max [k_Pon] of patches"
-"P" 1.0 0 -13403783 true "" "plotxy time max [p_Pon] of patches"
+"KINASE" 1.0 0 -3844592 true "" "plotxy time max [k_Pon] of patches"
+"PPTASE" 1.0 0 -13403783 true "" "plotxy time max [p_Pon] of patches"
 
 CHOOSER
 748
@@ -830,17 +830,6 @@ nGrid
 nGrid
 1 2 3 4 5 6 7 9 10 12 15 16 18 20 24 25 27 30 34 36 40 41 50 51 59 60 64 66 70 89 90 96 100 150 200 250 350 500
 22
-
-SWITCH
-534
-664
-706
-697
-save_timelapse_img?
-save_timelapse_img?
-1
-1
--1000
 
 SWITCH
 1053
@@ -1064,7 +1053,7 @@ CHOOSER
 Enzyme-Pair-Type
 Enzyme-Pair-Type
 "memK-memP" "memK-solP"
-1
+0
 
 INPUTBOX
 847
@@ -1202,7 +1191,7 @@ SWITCH
 578
 plot-xL-xS?
 plot-xL-xS?
-0
+1
 1
 -1000
 
@@ -1285,16 +1274,6 @@ TEXTBOX
 1206
 50
 Plots
-13
-0.0
-1
-
-TEXTBOX
-536
-637
-729
-656
-Saving Images and Videos
 13
 0.0
 1
@@ -1407,7 +1386,7 @@ SWITCH
 833
 save-xL-xS?
 save-xL-xS?
-0
+1
 1
 -1000
 
@@ -1421,6 +1400,17 @@ input-geometry-fname
 1
 0
 String
+
+SWITCH
+534
+664
+706
+697
+save_timelapse_img?
+save_timelapse_img?
+1
+1
+-1000
 
 @#$#@#$#@
 ## WHAT IS IT?
