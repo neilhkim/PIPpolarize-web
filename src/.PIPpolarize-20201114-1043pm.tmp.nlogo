@@ -1,3 +1,4 @@
+extensions [import-a fetch]
 globals [
   setup-success?
 ;  okay-to-save?
@@ -66,12 +67,7 @@ to setup
 
   plot_dxdt_vs_x
 
-  ; Fix constants (internally defined) ;
-  set colorname-outpatches brown - 1
-  set RGB-pip1 [0 100 255] ;  set RGB-pip1 extract-rgb blue
-  set RGB-pip2 [255 200 0]
-  set RGB-kinase [255 150 0]
-  set RGB-pptase [0 150 255]
+
 
   ; Init patchsets
   set inpatches no-patches
@@ -90,7 +86,14 @@ to setup
   setup_world_from_input_file
   set patchLength worldLength / nGrid
   set-neighbors_and_outColors
+
   initialize_patches
+   ; Fix constants (internally defined) ;
+  set colorname-outpatches brown - 1
+  set RGB-pip1 [0 100 255] ;  set RGB-pip1 extract-rgb blue
+  set RGB-pip2 [255 200 0]
+  set RGB-kinase [255 150 0]
+  set RGB-pptase [0 150 255]
 
   ; L patch and S patch
   if plot-xL-xS? [
@@ -123,6 +126,7 @@ to setup
 ;  ifelse save_timelapse_img? or save_all_plots? or save-xL-xS?  [  set setup-success? initialize-saving   ]
 ;  [ set save-dir-name "N/A" ]
   display
+  RESET-TICKS
 end
 
 
@@ -155,6 +159,7 @@ to plot_dxdt_vs_x
     plotxy 0.5 plot-y-min
   ] [
     print (word "dx/dt vs x Plotting failed (check kinetic parameters) Code:" error-message)
+
   ]
 end
 
@@ -338,7 +343,11 @@ to setup_world_from_input_file
     ask inpatches [ set pcolor grey ]
   ]
   if geometry-setup = "Confinement" [
-    import-pcolors-rgb input-geometry-fname
+;    import-pcolors-rgb input-geometry-fname
+    clear-all
+
+    fetch:url-async "https://raw.githubusercontent.com/neilhkim/PIPpolarize/master/input-geometry/50-snail6.png"[text -> import-a:pcolors-rgb text]
+
     set inpatches patches with [pcolor != [0 0 0]] ; when loading from image files, syntax like "black" does not work. Have to use RGB.
     set outpatches patches with [pcolor = [0 0 0]] ; when loading from image files, syntax like "black" does not work. Have to use RGB.
   ]
@@ -530,16 +539,22 @@ to set-neighbors_and_outColors
   ; Color the outpatches brown, in order to make it (visually) obvious that this is simulation ;
   if geometry-setup = "Confinement"
   [ ask outpatches
-    [ set pcolor colorname-outpatches]
+    [ set pcolor brown - 1]
     ask outpatches
     [ if any? neighbors with [member? self inpatches] [set pcolor black] ] ]
 end
 
 
 to represent-x-as-patch-color
-  let x1 map [[x] -> x_patch * x ] RGB-pip2
-  let x2 map [[x] -> (1 - x_patch) * x ] RGB-pip1 ;  If 4 components vs. 3 components matter is involved, consider this code:  let x2 map [[x] -> (1 - x_initial) * x ] but-last RGB-pip1
+
+  ;show x_patch
+  ;let x2 [0 * x_patch 100 * x_patch 255 * x_patch]
+  ;let x2 [255 * x_patch 200 * x_patch 0 * x_patch];  set RGB-pip1 extract-rgb blue
+  ;set RGB-pip2 [255 200 0]
+  let x1 map [[x] -> x_patch * x ] [255 200 0]; RGB-pip2 ;
+  let x2 map [[x] -> (1 - x_patch) * x ] [0 100 255] ; RGB-pip1 ;    If 4 components vs. 3 components matter is involved, consider this code:  let x2 map [[x] -> (1 - x_initial) * x ] but-last RGB-pip1
   set pcolor (map + x1 x2)
+
 end
 
 
@@ -681,8 +696,8 @@ true
 true
 "" ""
 PENS
-"K" 1.0 2 -955883 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_k_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count kinases]\n"
-"P" 1.0 2 -11221820 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_p_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count pptases]\n"
+"KINASE" 1.0 2 -955883 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_k_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count kinases]\n"
+"PPTASE" 1.0 2 -11221820 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_p_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count pptases]\n"
 
 INPUTBOX
 530
@@ -818,8 +833,8 @@ true
 true
 "" ""
 PENS
-"K" 1.0 0 -3844592 true "" "plotxy time max [k_Pon] of patches"
-"P" 1.0 0 -13403783 true "" "plotxy time max [p_Pon] of patches"
+"KINASE" 1.0 0 -3844592 true "" "plotxy time max [k_Pon] of patches"
+"PPTASE" 1.0 0 -13403783 true "" "plotxy time max [p_Pon] of patches"
 
 CHOOSER
 748
@@ -883,7 +898,7 @@ CHOOSER
 geometry-setup
 geometry-setup
 "None" "Confinement"
-0
+1
 
 SLIDER
 534
@@ -894,7 +909,7 @@ tlapse_interval
 tlapse_interval
 0.5
 150
-0.0
+7.0
 0.5
 1
 s
@@ -1053,7 +1068,7 @@ CHOOSER
 Enzyme-Pair-Type
 Enzyme-Pair-Type
 "memK-memP" "memK-solP"
-0
+1
 
 INPUTBOX
 847
@@ -1408,7 +1423,7 @@ SWITCH
 697
 save_timelapse_img?
 save_timelapse_img?
-1
+0
 1
 -1000
 
