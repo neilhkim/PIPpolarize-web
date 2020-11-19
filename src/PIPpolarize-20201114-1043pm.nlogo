@@ -5,7 +5,7 @@ globals [
   run-index
 
   ; Internally set Constants ;
-  colorname-outpatches
+  colornumber-for-outpatches
   RGB-pip1
   RGB-pip2
   RGB-kinase
@@ -89,7 +89,7 @@ to setup
   set time 0
   initialize_patches
    ; Fix constants (internally defined) ;
-  set colorname-outpatches brown - 1
+  set colornumber-for-outpatches brown - 1
   set RGB-pip1 [0 100 255] ;  set RGB-pip1 extract-rgb blue
   set RGB-pip2 [255 200 0]
   set RGB-kinase [255 150 0]
@@ -539,7 +539,7 @@ to set-neighbors_and_outColors
   ; Color the outpatches brown, in order to make it (visually) obvious that this is simulation ;
   if geometry-setup = "Confinement"
   [ ask outpatches
-    [ set pcolor brown - 1]
+    [ set pcolor colornumber-for-outpatches]
     ask outpatches
     [ if any? neighbors with [member? self inpatches] [set pcolor black] ] ]
 end
