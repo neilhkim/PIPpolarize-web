@@ -81,9 +81,14 @@ to setup
   ifelse wrap? [ __change-topology true  true  ]
                 [ __change-topology false false ]
   setup_world_from_input_file
+  RESET-TICKS
+end
+to setup2
+  set inpatches patches with [pcolor != [0 0 0]] ; when loading from image files, syntax like "black" does not work. Have to use RGB.
+  set outpatches patches with [pcolor = [0 0 0]] ; when loading from image files, syntax like "black" does not work. Have to use RGB.
   set patchLength worldLength / nGrid
   set-neighbors_and_outColors
-  RESET-TICKS
+
 
   plot_dxdt_vs_x
   set time 0
@@ -344,12 +349,12 @@ to setup_world_from_input_file
   ]
   if geometry-setup = "Confinement" [
 ;    import-pcolors-rgb input-geometry-fname
-    clear-all
+    ;clear-all
 
     fetch:url-async "https://raw.githubusercontent.com/neilhkim/PIPpolarize/master/input-geometry/50-snail6.png"[text -> import-a:pcolors-rgb text]
 
-    set inpatches patches with [pcolor != [0 0 0]] ; when loading from image files, syntax like "black" does not work. Have to use RGB.
-    set outpatches patches with [pcolor = [0 0 0]] ; when loading from image files, syntax like "black" does not work. Have to use RGB.
+    ;set inpatches patches with [pcolor != [0 0 0]] ; when loading from image files, syntax like "black" does not work. Have to use RGB.
+    ;set outpatches patches with [pcolor = [0 0 0]] ; when loading from image files, syntax like "black" does not work. Have to use RGB.
   ]
 end
 
@@ -650,7 +655,7 @@ BUTTON
 126
 171
 go
-if run-index < N-runs [go]
+go\n
 T
 1
 T
@@ -1366,6 +1371,23 @@ TEXTBOX
 Geometry
 13
 0.0
+1
+
+BUTTON
+177
+128
+251
+161
+setup2
+setup2
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
 1
 
 @#$#@#$#@
