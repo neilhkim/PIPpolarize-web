@@ -662,10 +662,10 @@ NIL
 1
 
 PLOT
-1049
-360
-1249
-573
+1068
+346
+1268
+559
 PIP fraction
 time
 NIL
@@ -681,10 +681,10 @@ PENS
 "PIP2" 1.0 2 -4079321 true "" "plotxy time avg_x"
 
 PLOT
-1052
-91
-1251
-305
+1071
+77
+1270
+291
 Number of Enzymes
 time
 NIL
@@ -700,10 +700,10 @@ PENS
 "PPTASE" 1.0 2 -11221820 true "" "if Calculation-Type = \"deterministic\" [plotxy time sum ([patch_p_density] of inpatches) * patchLength ^ 2]\nif Calculation-Type = \"stochastic\" [plotxy time count pptases]\n"
 
 INPUTBOX
-530
-414
-618
-474
+573
+221
+661
+281
 k_mkon
 0.1
 1
@@ -711,10 +711,10 @@ k_mkon
 Number
 
 INPUTBOX
-626
-414
-715
-474
+669
+221
+758
+281
 k_koff
 0.7
 1
@@ -722,10 +722,10 @@ k_koff
 Number
 
 INPUTBOX
-723
-414
-813
-474
+766
+221
+856
+281
 k_mkcat
 10.0
 1
@@ -733,10 +733,10 @@ k_mkcat
 Number
 
 INPUTBOX
-531
-528
-619
-588
+574
+335
+662
+395
 p_mkon
 0.02
 1
@@ -744,10 +744,10 @@ p_mkon
 Number
 
 INPUTBOX
-625
-527
-714
-587
+668
+334
+757
+394
 p_koff
 0.1
 1
@@ -755,10 +755,10 @@ p_koff
 Number
 
 INPUTBOX
-723
-491
-815
-551
+766
+298
+858
+358
 memP_mkcat
 15.0
 1
@@ -777,10 +777,10 @@ show_enz?
 -1000
 
 INPUTBOX
-627
-320
-714
-380
+670
+127
+757
+187
 D_pip
 2.0
 1
@@ -818,10 +818,10 @@ NIL
 HORIZONTAL
 
 PLOT
-1051
-581
-1250
-795
+1070
+567
+1269
+781
 Max Pon-patch
 time
 NIL
@@ -837,20 +837,20 @@ PENS
 "PPTASE" 1.0 0 -13403783 true "" "plotxy time max [p_Pon] of patches"
 
 CHOOSER
-748
-334
-840
-379
+791
+141
+883
+186
 nGrid
 nGrid
 1 2 3 4 5 6 7 9 10 12 15 16 18 20 24 25 27 30 34 36 40 41 50 51 59 60 64 66 70 89 90 96 100 150 200 250 350 500
 22
 
 SWITCH
-1053
-52
-1469
-85
+1072
+38
+1488
+71
 save_all_plots?
 save_all_plots?
 1
@@ -858,21 +858,21 @@ save_all_plots?
 -1000
 
 INPUTBOX
-535
-224
-626
-284
+578
+31
+669
+91
 endtime
-10.0
+40.0
 1
 0
 Number
 
 INPUTBOX
-845
-319
-923
-379
+888
+126
+966
+186
 worldLength
 30.0
 1
@@ -880,12 +880,12 @@ worldLength
 Number
 
 INPUTBOX
-630
-224
-714
-284
+673
+31
+757
+91
 timestep
-0.01
+0.018
 1
 0
 Number
@@ -900,26 +900,11 @@ geometry-setup
 "None" "Confinement"
 1
 
-SLIDER
-534
-703
-706
-736
-tlapse_interval
-tlapse_interval
-0.5
-150
-7.0
-0.5
-1
-s
-HORIZONTAL
-
 SWITCH
-1269
-281
-1467
-314
+1288
+267
+1486
+300
 disallow-too-large-dx?
 disallow-too-large-dx?
 0
@@ -927,10 +912,10 @@ disallow-too-large-dx?
 -1000
 
 PLOT
-1267
-322
-1467
-533
+1286
+308
+1486
+519
 Max Min dx_patch
 time
 NIL
@@ -946,10 +931,10 @@ PENS
 "min" 1.0 0 -7500403 true "" "if inpatches != 0 [plotxy time min [dx_patch] of inpatches ]"
 
 MONITOR
-927
-334
-1003
-379
+970
+141
+1046
+186
 patchLength
 worldLength / nGrid
 7
@@ -968,10 +953,10 @@ timestamp-on-image?
 -1000
 
 INPUTBOX
-820
-414
-910
-474
+863
+221
+953
+281
 k_mKm
 2.0
 1
@@ -979,10 +964,10 @@ k_mKm
 Number
 
 INPUTBOX
-821
-527
-908
-587
+864
+334
+951
+394
 p_mKm
 0.5
 1
@@ -990,10 +975,10 @@ p_mKm
 Number
 
 INPUTBOX
-723
-556
-816
-616
+766
+363
+859
+423
 solP_mkcat
 0.15
 1
@@ -1001,10 +986,10 @@ solP_mkcat
 Number
 
 INPUTBOX
-531
-320
-620
-380
+574
+127
+663
+187
 D_enz
 0.2
 1
@@ -1012,10 +997,10 @@ D_enz
 Number
 
 INPUTBOX
-1606
-99
-1706
-159
+676
+571
+776
+631
 pert-wavelength
 0.0
 1
@@ -1023,10 +1008,10 @@ pert-wavelength
 Number
 
 BUTTON
-1503
-59
-1705
-92
+573
+531
+775
+564
 add-sinusoidal-pip-perturbation
 add-sinusoidal-pip-perturbation
 NIL
@@ -1040,10 +1025,10 @@ NIL
 1
 
 INPUTBOX
-1502
-98
-1599
-158
+572
+570
+669
+630
 perturb-amplitude
 0.0
 1
@@ -1068,13 +1053,13 @@ CHOOSER
 Enzyme-Pair-Type
 Enzyme-Pair-Type
 "memK-memP" "memK-solP"
-1
+0
 
 INPUTBOX
-847
-63
-1002
-123
+387
+36
+542
+96
 KIN-PPT-X
 [.0 .0 .5]
 1
@@ -1082,10 +1067,10 @@ KIN-PPT-X
 String
 
 BUTTON
-847
-128
-1001
-161
+387
+101
+541
+134
 default value
 set KIN-PPT-X \"[.0 .0 .5]\"
 NIL
@@ -1099,10 +1084,10 @@ NIL
 1
 
 SWITCH
-1503
-245
-1704
-278
+573
+717
+774
+750
 smaller-part-test?
 smaller-part-test?
 1
@@ -1110,10 +1095,10 @@ smaller-part-test?
 -1000
 
 MONITOR
-1502
-162
-1704
-207
+572
+634
+774
+679
 pert-angular wavenumber
 2 * pi / pert-wavelength
 5
@@ -1132,10 +1117,10 @@ time
 11
 
 PLOT
-1267
-91
-1466
-267
+1286
+77
+1485
+253
 dxdt vs x
 NIL
 NIL
@@ -1152,20 +1137,20 @@ PENS
 "x0.5" 1.0 0 -16777216 true "" ""
 
 CHOOSER
-750
-231
-843
-276
+793
+38
+886
+83
 N-runs
 N-runs
 1 2 3 4 5 9 10 20 30 40 50
-2
+0
 
 MONITOR
-850
-232
-928
-277
+893
+39
+971
+84
 Current run
 run-index + 1
 17
@@ -1173,10 +1158,10 @@ run-index + 1
 11
 
 PLOT
-1266
-582
-1466
-795
+1285
+568
+1485
+781
 xL-xS
 time
 NIL
@@ -1200,32 +1185,21 @@ PENS
 "9" 1.0 2 -16777216 true "" ""
 
 SWITCH
-1266
-545
-1465
-578
+1285
+531
+1484
+564
 plot-xL-xS?
 plot-xL-xS?
 0
 1
 -1000
 
-SWITCH
-534
-744
-706
-777
-simple-savename?
-simple-savename?
-1
-1
--1000
-
 MONITOR
-1058
-310
-1150
-355
+1077
+296
+1169
+341
 avg  k-density
 count kinases / (patchLength ^ 2 * count inpatches)
 5
@@ -1233,10 +1207,10 @@ count kinases / (patchLength ^ 2 * count inpatches)
 11
 
 MONITOR
-1155
-310
-1248
-355
+1174
+296
+1267
+341
 avg  p-density
 count pptases / (patchLength ^ 2 * count inpatches)
 5
@@ -1244,60 +1218,60 @@ count pptases / (patchLength ^ 2 * count inpatches)
 11
 
 TEXTBOX
-1508
-34
-1714
-69
+578
+506
+784
+541
 Deterministic Simulation Settings
 13
 0.0
 1
 
 TEXTBOX
-537
-297
-687
-315
+580
+104
+730
+122
 Diffusion constants
 13
 0.0
 1
 
 TEXTBOX
-534
-391
-684
-409
+577
+198
+727
+216
 Kinase parameters
 13
 0.0
 1
 
 TEXTBOX
-533
-492
-683
-510
+576
+299
+726
+317
 Phosphatase parameters
 13
 0.0
 1
 
 TEXTBOX
-1056
-32
-1206
-50
+1075
+18
+1225
+36
 Plots
 13
 0.0
 1
 
 TEXTBOX
-754
-294
-958
-326
+797
+101
+1001
+133
 Membrane size and patches
 13
 0.0
@@ -1315,10 +1289,10 @@ setup-success?
 11
 
 TEXTBOX
-539
-203
-689
-221
+582
+10
+732
+28
 Time setting
 13
 0.0
@@ -1335,10 +1309,10 @@ Simulation Type Setting
 1
 
 TEXTBOX
-753
-208
-903
-226
+796
+15
+946
+33
 Simulation Runs
 13
 0.0
@@ -1355,20 +1329,20 @@ Visual Settings
 1
 
 TEXTBOX
-850
-37
-1000
-55
+390
+10
+540
+28
 Starting condition
 13
 0.0
 1
 
 TEXTBOX
-1506
-223
-1656
-241
+576
+695
+726
+713
 Special Settings\t
 13
 0.0
@@ -1389,43 +1363,10 @@ TEXTBOX
 11
 351
 29
-File I/O
+Geometry
 13
 0.0
 1
-
-SWITCH
-1266
-800
-1466
-833
-save-xL-xS?
-save-xL-xS?
-1
-1
--1000
-
-INPUTBOX
-378
-38
-810
-98
-input-geometry-fname
-0
-1
-0
-String
-
-SWITCH
-534
-664
-706
-697
-save_timelapse_img?
-save_timelapse_img?
-0
-1
--1000
 
 @#$#@#$#@
 ## WHAT IS IT?
