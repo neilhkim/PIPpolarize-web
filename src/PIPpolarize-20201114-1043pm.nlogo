@@ -1058,7 +1058,7 @@ CHOOSER
 Enzyme-Pair-Type
 Enzyme-Pair-Type
 "memK-memP" "memK-solP"
-0
+1
 
 INPUTBOX
 387
@@ -1139,7 +1139,8 @@ false
 PENS
 "default" 1.0 0 -14835848 true "" ""
 "dxdt0" 1.0 0 -16777216 true "" ""
-"x0.5" 1.0 0 -16777216 true "" ""
+"x0.5" 1.0 0 -16777216 true "" "plotxy 0.5 plot-y-max"
+"x0.6" 1.0 0 -7500403 true "" "plotxy 0.5 plot-y-min"
 
 CHOOSER
 793
