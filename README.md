@@ -1,7 +1,5 @@
-### Github Tutorial
+The web version of PIP membrane Kinase-Phosphatase reaction simulation
 
-####1. [How to Host Files on Github](http://www.labnol.org/internet/free-file-hosting-github/29092/)
+To access the webpage, click the below link:
 
-####2. [Github Gists for Non-Developers](http://www.labnol.org/internet/github-gist-tutorial/28499/)
-
-Append ?raw=true to any file URL on Github to get the direct link.
+http://neilhkim.github.io/PIPpolarize-web
